@@ -8,9 +8,9 @@ class SidePanel extends React.Component {
         const { currentUser } = this.props;
 
         return(
-            <Menu size="large" inverted fixed="left" vertical style={{ background: '#4c3c4c', fontSize: '1.2rem' }}>
+            <Menu size="large" inverted fixed="left" vertical style={{ background: '#37474F', fontSize: '1.2rem' }}>
                 <UserPanel currentUser={currentUser} />
-                <Channels />
+                <Channels currentUser={currentUser} />
             </Menu>
         )
     }
