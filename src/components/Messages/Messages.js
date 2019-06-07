@@ -37,6 +37,11 @@ class Messages extends React.Component {
                 messages: loadedMessages,
                 messagesLoading: false
             });
+            const title = 'New Message!';
+            const options = {
+                    body: 'There is a new School Manager Chat message'
+                };
+                registration.showNotification(title, options);
         });
     }
 
