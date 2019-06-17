@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Segment, Comment } from "semantic-ui-react";
 import firebase from '../../firebase';
+import soundfile from '../../assets/filling-your-inbox.mp3';
 
 import MessagesHeader from './MessagesHeader';
 import MessageForm from './MessageForm';
@@ -23,11 +24,16 @@ class Messages extends React.Component {
         if(channel && user) {
             this.addListeners(channel.id);
         }
+
+        this.audio = new Audio(soundfile);
+
     }
 
     addListeners = channelId => {
         this.addMessageListener(channelId);
     }
+
+
 
     addMessageListener = channelId => {
         let loadedMessages = [];
@@ -37,11 +43,7 @@ class Messages extends React.Component {
                 messages: loadedMessages,
                 messagesLoading: false
             });
-            const title = 'New Message!';
-            const options = {
-                    body: 'There is a new School Manager Chat message'
-                };
-                registration.showNotification(title, options);
+            this.audio.play();
         });
     }
 
